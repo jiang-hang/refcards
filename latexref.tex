@@ -1,0 +1,403 @@
+\documentclass[11pt,twocolumn]{article}
+
+
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont={SimHei},ItalicFont={KaiTi}]{FangSong}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{FangSong}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{alltt}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true}
+
+\textheight = 10in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+\parskip = 1pt
+\parindent = 0.0in
+
+\setlength{\hoffset}{-16pt}
+\setlength{\voffset}{-26pt}
+\newcommand{\ttnrbf}[1]{\textnormal{\textbf{#1}}}
+
+\newcommand{\ttitbf}[1]{\textnormal{\textbf{#1}}}
+
+\newcommand{\ttit}[1]{\textit{#1}}
+\newcommand{\sSecBox}[1]{\begin{minipage}{3in}\begin{alltt}{\small\textrm{\textbf{#1}}}}
+\newcommand{\eSecBox}{\end{alltt}\end{minipage}\\ \rule{0pt}{0pt}\hrule}
+
+\newcommand{\sSecMBox}[1]{\begin{minipage}{3in}{\small\textrm{\textbf{#1}}}\\}
+\newcommand{\eSecMBox}{\end{minipage}\\ \rule{0pt}{0pt}\hrule}
+
+
+\newcommand{\srb}[2]{\parbox[t]{#1}{#2}\rule{5pt}{0pt}}
+
+\newcommand{\blt}{\makebox[2ex]{\(\bullet\)}}
+\newcommand{\bsp}{\makebox[2ex]{}}
+\newcommand{\bks}{\(\backslash\)}
+
+\begin{document}
+\pagestyle{empty}
+
+\fbox{{\parbox[b]{3in}{\huge \bf \LaTeX \ \& \TeX\\ \tiny \copyright 杨学辉 \url{http://www.bagualu.net}  \\ 最近更新 2017-06-23}}}
+\tiny
+
+\sSecBox{重要的尺寸}
+\srb{210pt}{\blt 1英寸＝72.27点（pt）＝72大点（bp）＝25.4毫米, “点”也叫“磅”}
+\srb{210pt}{\blt A4纸＝595 x 842pt = 8.264 x 11.69in = 210 x 297 mm}
+\srb{105pt}{\blt 四号字大小＝12pt＝1pc＝4.2175mm}\srb{105pt}{\blt 身份证尺寸＝85.6 x 54mm}
+\srb{65pt}{\blt DPI ＝ Dot Per Inch}
+\eSecBox
+
+\sSecBox{文档类，包}
+\blt\srb{25pt}{\bks{documentclass\{\ttit{options}\}\{\ttit{style}\}}}
+\bsp\blt \ttit{style}:   article report book slides letter
+\bsp\blt \ttit{options}: 10pt 11pt 12pt twiside twocolumn titlepage
+\blt\srb{25pt}{\bks{usepackage}[\ttit{options}]\{\ttit{pkg}\}}
+\blt\srb{25pt}{\bks{pagestyle}\{\ttit{style}\}}
+\bsp\blt \ttit{style}:   plain empty headings myheadings
+\blt\srb{25pt}{\bks{pagenumbering}\{\ttit{style}\}}
+\bsp\blt \ttit{style}:   arabic roman alph Roman Alph
+\eSecBox
+
+\sSecBox{使用中文}
+\blt\srb{65pt}{\bks{usepackage\{xeCJK\}}}\bsp\srb{105pt}{在西文模板中加入这句并设置字体一般即可使用中文}
+\bsp\blt\srb{85pt}{\bks{setCJKmainfont[BoldFont=\{SimHei\},ItalicFont=\{KaiTi\}]\{FangSong\}}}
+\bsp\blt\srb{85pt}{\bks{setCJKsansfont\{SimHei\}}}
+\bsp\blt\srb{85pt}{\bks{setCJKmonofont\{KaiTi\}}}
+\blt\srb{65pt}{列出可用的中文字体}\bsp\srb{105pt}{fc-list -f ``\%\{family\}\bks{n}''  :lang=zh}
+\blt\srb{30pt}{安装新字体}\bsp\srb{105pt}{首先拷贝SIMFANG.TTF等文件到/usr/share/fonts/myfonts/目录}
+\bsp\blt\srb{85pt}{进入目录myfonts，执行sudo mkfontscale & mkfontdir & fc-cache -fv}
+\eSecBox
+
+\sSecBox{Front \& Back (Title, Abstract, Contents)}
+\srb{75pt}{\blt\bks{maketitle}                } Make title (\bks{title}, \bks{author}, \bks{date})
+\srb{75pt}{\blt\bks{begin}\{abstract\} \ldots } Make abstract
+\srb{75pt}{\blt\bks{tableofcontents}          } Make table of contents
+\eSecBox
+
+\sSecBox{Displayed Paragraphs}
+\srb{75pt}{\blt\bks{begin}\{quote\} \ldots     } Short displayed quotation
+\srb{75pt}{\blt\bks{begin}\{quotation\} \ldots } Long displayed quotation
+\srb{75pt}{\blt\bks{begin}\{verbatim\} \ldots  } Typewriter font exactly as formatted
+\eSecBox
+
+\sSecBox{Lists}
+\srb{110pt}{\blt\bks{begin}\{itemize\} \ldots                                }  Bulleted 
+\srb{110pt}{\blt\bks{begin}\{enumerate\} \ldots                              }  Numbered 
+\srb{110pt}{\blt\bks{begin}\{description\} \ldots                            }  Labeled (use \bks{item}[\ttit{lab}])
+\srb{110pt}{\blt\bks{begin}\{list\}\{\ttit{label}\}\{\ttit{spacing}\} \ldots }  Lots of spaceing options
+\srb{110pt}{\bsp\blt\bks{topsep}        Extra vertical space at top of list}
+\srb{110pt}{\bsp\blt\bks{partopsep}     Extra length at top if prececed by a blank line}
+\srb{110pt}{\bsp\blt\bks{itemsep}       Extra vertical space between items}
+\srb{110pt}{\bsp\blt\bks{parsep}        Vertical space between paragraphs within an item}
+\srb{110pt}{\bsp\blt\bks{leftmargin}    Distance between environment left margin and the list}
+\srb{110pt}{\bsp\blt\bks{rightmargin}   Distance betwen enviroment right margin and the list}
+\srb{110pt}{\bsp\blt\bks{listparindent} Extra space for paragraph indent after first in item}
+\srb{110pt}{\bsp\blt\bks{itemindent}    Indentation of first line of an item}
+\srb{110pt}{\bsp\blt\bks{labelsep}      Separation between label box and first line item text}
+\srb{110pt}{\bsp\blt\bks{labelwidth}    Width of the box containing the label}
+\eSecBox
+
+\sSecBox{Splitting the Input}
+\srb{70pt}{\blt\bks{input}\{\ttit{file}\}        } Read in file
+\srb{70pt}{\blt\bks{include}\{\ttit{file}\}      } Read file unless \bks{includeonly} overrides
+\srb{70pt}{\blt\bks{includeonly}\{\ttit{files}\} } Exclude any file in list
+\eSecBox
+
+\sSecBox{Line \& Page Breaking}
+\srb{75pt}{\blt\bks{linebreak}     }  Force line break
+\srb{75pt}{\blt\bks\bks[\ttit{len}]}  Force line break and add vertical space
+\srb{75pt}{\blt\bks{pagebreak}     }  Force page break (Also see: \bks{newpage})
+\srb{75pt}{\blt\bks{clearpage}     }  Dump all figures and start new page
+\eSecBox
+
+\sSecBox{Boxes}
+\srb{102pt}{\blt\bks{mbox}\{ \ldots \}                                     } Put a box around stuff
+\srb{102pt}{\blt\bks{mfbox} & \bks{makefbox}                               } Like \bks{mbox} & \bks{makebox} with frame
+\srb{102pt}{\blt\bks{makebox}[\ttit{wd}][\ttit{pos}]\{\ldots\}             } Box with width and position (l, r, c).
+\srb{102pt}{\blt\bks{raisebox}\{\ttit{raise-ht}\}[\ttit{ht}]\{\ttit{text}\}} Raised typeset box
+\eSecBox
+
+\sSecBox{Paragraphs \& Minipages}
+\srb{75pt}{\blt\bks{begin}\{minipage\}[\ttit{pos}]\{\ttit{wd}\} \ldots}
+\srb{75pt}{\blt\bks{parbox}[\ttit{pos}]\{\ttit{wd}\}\{\ldots\} }
+\eSecBox
+
+\sSecBox{Space \& Rules}
+\srb{80pt}{\blt\bks{hspace}\{\ttit{len}\} } Make a horz space.  (Use * form to force)
+\srb{80pt}{\blt\bks{hfill}                } Infinitely stretchable space
+\srb{80pt}{\blt\bks{vspace}\{\ttit{len}\} } Make a vert space.  (Use * form to force)
+\srb{80pt}{\blt\bks{hrulefill}            } Draw horizontal line as long as possible
+\srb{80pt}{\blt\bks{rule}[\ttit{raise-ht}]\{\ttit{wd}\}\{\ttit{ht}\} } Draw a blob of ink
+\blt Horz space commands: \verb+\bigskip+, \verb+\medskip+, \verb+\smallskip+
+\blt Math horz space: \verb+\thinspace+, \verb+\medspace+, \verb+thickspace+
+\eSecBox
+
+\sSecBox{Lengths}
+\srb{80pt}{\blt\bks{newlength}\{\ttit{cmd}\}                 } Make a new length command
+\srb{80pt}{\blt\bks{setlength}\{\ttit{cmd}\}\{\ttit{len}\}   } Set length \ttit{cmd} to \ttit{len}
+\srb{80pt}{\blt\bks{addtolength}\{\ttit{cmd}\}\{\ttit{len}\} } Add given length to given command
+\srb{80pt}{\blt\bks{settowidth}\{\ttit{cmd}\}\{\ttit{text}\} } Set length of \ttit{cmd} to the width \ttit{text}
+\srb{80pt}{\blt\bks{settoheight}\{\ttit{cmd}\}\{\ttit{text}\}} Set length of \ttit{cmd} to the height \ttit{text}
+\bsp NOTE: Units can be \verb+cm em ex in pc pt mm+
+\eSecBox
+
+\sSecBox{Counters}
+\srb{75pt}{\bks{setcounter}\{\ttit{ctr}\}\{\ttit{n}\}   } set counter to value
+\srb{75pt}{\bks{addtocounter}\{\ttit{ctr}\}\{\ttit{n}\} } add value to counter
+\eSecBox
+
+\sSecBox{New Commands}
+\srb{100pt}{\bks{newcommand}\{\bks\ttit{cmd}\}[\ttit{n}]\{\ttit{body}\}   }command \ttit{cmd} with \ttit{n} args (arg vals: #n)
+\eSecBox
+
+\sSecBox{Tabular Environment}
+\srb{65pt}{\blt\bks{begin}\{tabular\}[\ttit{pos}]\{\ttit{col-fmt}\} \ldots }
+\bsp The \ttit{col-fmt} argument specifies lines and column justification:
+\bsp\bsp\srb{15pt}{\blt l        }\srb{65pt}{Left-justified column  }\bsp\bsp\srb{15pt}{\blt r        }\srb{65pt}{Right-justified column }
+\bsp\bsp\srb{15pt}{\blt c        }\srb{65pt}{Centered column        }\bsp\bsp\srb{15pt}{\blt |        }\srb{65pt}{Vertical rule          }
+\bsp\bsp\srb{25pt}{\blt @\{\ldots\} }\srb{65pt}{Text or space between columns}
+\srb{90pt}{\blt\bks{multicolumn}\{\ttit{n}\}\{\ttit{col}\}\{\ldots\}  } Span \ttit{n} columns with format \ttit{col}
+\srb{90pt}{\blt\bks{hline}                                         } Draw horizontal line across the table
+\srb{90pt}{\blt\bks{cline}\{\ttit{i}-\ttit{j}\}                    } Draw horizontal line from col \ttit{i} to \ttit{j}
+\eSecBox
+
+\sSecBox{Figures and Tables}
+\srb{80pt}{\blt\bks{begin}\{figure\}[\ttit{loc}] \ldots } Make a floating figure
+\srb{80pt}{\blt\bks{begin}\{table\}[\ttit{loc}] \ldots  } Make a floating table
+\srb{80pt}{\bsp\blt \ttit{loc}: h (here), h! (HERE!!), t (top), b (botom), p (page for floats)}
+\srb{80pt}{\blt\bks{caption}\{\ldots\}                  } Caption figure or table. \bks{label} after \bks{caption}
+\eSecBox
+
+\sSecBox{Package ``\texttt{alltt}''}
+\blt\srb{55pt}{\bks{begin}\{alltt\} \ldots}Typeset like a verbatim block, except that the
+\bsp\srb{55pt}{                           }special symbols \bks, \{, and \} have the normal meaning.
+\eSecBox
+
+\sSecBox{Type Size}
+\srb{40pt}{\blt\bks{tiny}        }\srb{40pt}{\blt\bks{scriptsize}  }\srb{30pt}{\blt\bks{Large}       }\srb{45pt}{\blt\bks{footnotesize}}\srb{40pt}{\blt\bks{small}       }
+\srb{40pt}{\blt\bks{normalsize}  }\srb{40pt}{\blt\bks{large}       }\srb{30pt}{\blt\bks{LARGE}       }\srb{45pt}{\blt\bks{huge}        }\srb{40pt}{\blt\bks{Huge}        }
+\eSecBox
+
+\sSecBox{Type Style}
+\blt Paragraph mode
+\bsp\srb{45pt}{\blt\bks{textrm}\{\ldots\}}\srb{15pt}{Roman   }\bsp\srb{45pt}{\blt\bks{textit}\{\ldots\}}\srb{25pt}{Italics }\bsp\srb{45pt}{\blt\bks{textbf}\{\ldots\}}\srb{25pt}{Bold    }
+\bsp\srb{45pt}{\blt\bks{textsc}\{\ldots\}}\srb{15pt}{Caps    }\bsp\srb{45pt}{\blt\bks{texttt}\{\ldots\}}\srb{25pt}{Type    }\bsp\srb{45pt}{\blt\bks{textsf}\{\ldots\}}\srb{25pt}{SSrf    }
+\bsp\srb{45pt}{\blt\bks{textsl}\{\ldots\}}\srb{15pt}{Slant   }
+\blt math mode
+\bsp\srb{45pt}{\blt\bks{mathrm}\{\ldots\} }\srb{15pt}{Roman  }\bsp\srb{45pt}{\blt\bks{mathit}\{\ldots\} }\srb{25pt}{Italics}\bsp\srb{45pt}{\blt\bks{mathbf}\{\ldots\} }\srb{25pt}{Bold   }
+\bsp\srb{45pt}{\blt\bks{mathsc}\{\ldots\} }\srb{15pt}{Caps   }\bsp\srb{45pt}{\blt\bks{mathtt}\{\ldots\} }\srb{25pt}{Type   }\bsp\srb{45pt}{\blt\bks{mathsf}\{\ldots\} }\srb{25pt}{SSrf   }
+\bsp\srb{45pt}{\blt\bks{mathcal}\{\ldots\}}\srb{15pt}{Cal    }\bsp\srb{45pt}{\blt\bks{Bbb}\{\ldots\}}\srb{15pt}{AMS Black Board Bold }
+\eSecBox
+
+\sSecBox{Sectioning}
+\srb{50pt}{\blt\bks{part}          }\srb{50pt}{\blt\bks{chapter}       }\srb{50pt}{\blt\bks{section}       }\srb{50pt}{\blt\bks{subsection}    }
+\srb{50pt}{\blt\bks{paragraph}     }\srb{50pt}{\blt\bks{subparagraph}  }\srb{50pt}{\blt\bks{appendix}      }\srb{50pt}{\blt\bks{subsubsection} }
+\eSecBox
+
+\sSecBox{Package ``\texttt{graphicx}''}
+\srb{110pt}{\blt\bks{scalebox}\{\ttit{h_scl}\}[\ttit{v_scl}]\{...\}    }  One arg may be !
+\srb{110pt}{\blt\bks{resizebox}\{\ttit{h_len}\}\{\ttit{v_len}\}\{...\} }  One arg may be !
+\srb{110pt}{\blt\bks{reflectbox}\{...\}                                }
+\srb{110pt}{\blt\bks{rotatebox}\{\ttit{angle}\}\{...\}                 }  Counterclockwise in degrees
+\srb{110pt}{\blt\bks{includegraphics}[\ttit{opts}]\{\ttit{file_name}\} }  Include graphic into document.
+\srb{25pt}{\bsp\blt\ttit{opts}: } comma seporated list of options
+\srb{80pt}{\bsp\bsp\blt scale=\ttit{float}         } Scale value of 1 is natural sized
+\srb{80pt}{\bsp\bsp\blt width=\ttit{len}           }
+\srb{80pt}{\bsp\bsp\blt height=\ttit{len}          }
+\srb{80pt}{\bsp\bsp\blt angle=\ttit{float}         } Counterclockwise \ttit{float} degrees 
+\srb{80pt}{\bsp\bsp\blt origin=\ttit{x y}          } Rotation origin                       
+\srb{80pt}{\bsp\bsp\blt totalheight=\ttit{len}     } Height after rotation                 
+\srb{80pt}{\bsp\bsp\blt keepaspectratio=\ttit{bol} } Value is ``true'' or ``false''
+\srb{80pt}{\bsp\bsp\blt clip=\ttit{bol}            } Clip image outside of bounding box
+\srb{80pt}{\bsp\bsp\blt bb=\ttit{llx lly urx ury}  } Bounding Box.  Values in points.
+\srb{80pt}{\bsp\bsp\blt trim=\ttit{llx lly urx ury}} Shrink bounding box.  Values in points.
+\eSecBox
+
+\sSecBox{Package ``\texttt{xcolor}''}
+\srb{125pt}{\blt\bks{definecolor}\{\ttit{clr-name}\}\{gray\}\{\ttit{val}\}                } Define a gray color
+\srb{125pt}{\blt\bks{definecolor}\{\ttit{clr-name}\}\{rgb\}\{\ttit{r},\ttit{g},\ttit{b}\} } Define an RGB color. r,g,b\(\in\)[0,1]
+\srb{125pt}{\blt\bks{textcolor}[\ttit{mdl}]\{\ttit{fg_clr}\}\{...\}                       } Set \ttit{text} color
+\srb{125pt}{\blt\bks{colorbox}[\ttit{mdl}]\{\ttit{bg_clr}\}\{...\}                        } Set \ttit{text} background color
+\srb{125pt}{\blt\bks{fcolorbox}[\ttit{mdl}]\{\ttit{box_clr}\}\{\ttit{bg_clr}\}\{...\}     } fbox with frame and background color
+\srb{125pt}{\bsp\bsp\blt no \ttit{mdl} \(\rightarrow\) named color: red, green, blue, cyan, yellow, magenta, black,}
+\srb{125pt}{\bsp\bsp\bsp  white, gray, lightgray, brown, darkgray, lime, olive, orange, pink, }
+\srb{125pt}{\bsp\bsp\bsp  purple, teal, violet, or a color defined via \bks{definecolor,}}
+\srb{125pt}{\bsp\bsp\blt \ttit{mdl} == rgb \(\rightarrow\) color is comma separated triple: r,g,b\(\in\)[0,1]}
+\srb{125pt}{\bsp\bsp\blt \ttit{mdl} == gray \(\rightarrow\) color is single float}
+\srb{125pt}{\bsp\bsp\blt \ttit{mdl} == HTML \(\rightarrow\) color is six hex digits: RRGGBB}
+\eSecBox
+
+\sSecBox{Cross Reference}
+\srb{50pt}{\blt\bks{label}\{\ttit{key}\}   } Assign current counter to \ttit{key}
+\srb{50pt}{\blt\bks{ref}\{\ttit{key}\}     } Print value assigned to key
+\srb{50pt}{\blt\bks{pageref}\{\ttit{key}\} } Print page number assigned to key
+\eSecBox
+
+\sSecBox{Package ``\texttt{hyperref}''}
+\srb{95pt}{\blt\bks{href}\{\ttit{url}\}\{\ttit{text}\}  } Make link, print \ttit{text} in document
+\srb{95pt}{\blt\bks{url}\{\ttit{url}\}                  } Make link, print \ttit{url} with \bks{texttt}
+\srb{95pt}{\blt\bks{hypersetup}\{colorlinks=true\}      } Color links, don't put them in boxes
+\eSecBox
+%A URL: \htmladdnormallink{\url{TEXT}}{URL}
+
+\sSecBox{Package ``\texttt{fancyhdr}''}
+\srb{70pt}{\blt\bks{pagestyle}\{fancy\}           } Enable mode in preamble with \bks{pagestyle}
+\srb{70pt}{\blt\bks{thispagestyle}\{\ttit{style}\}} Style for this page: Suppress all with ``empty''
+\srb{70pt}{\blt\bks{lhead}\{...\}                 } Top.   Left.   Document classification
+\srb{70pt}{\blt\bks{chead}\{...\}                 } Top.   Center.
+\srb{70pt}{\blt\bks{rhead}\{...\}                 } Top.   Right.  Document title
+\srb{70pt}{\blt\bks{lfoot}\{...\}                 } Botom. Left.
+\srb{70pt}{\blt\bks{cfoot}\{...\}                 } Botom. Center. Page number: \bks{thepage}
+\srb{70pt}{\blt\bks{rfoot}\{...\}                 } Botom. Right.  Signature: \bks{mjrMRstd}
+\eSecBox
+
+\sSecBox{Bibliography}
+\srb{75pt}{\blt\bks{cite}\{\ttit{label}\} } Cyte the bib entry with the given label
+\blt Example bibliography done by hand:
+\bsp\bsp\verb+\begin{thebibliography}{MMMMMM}                             +
+\bsp\bsp\verb+ \pagebreak[0] \samepage{                                   +
+\bsp\bsp\verb+  \bibitem[Weihrauch 00]{KW00}                              +
+\bsp\bsp\verb+        Klaus Weihrauch (2000)\\                            +
+\bsp\bsp\verb+        \emph{Computable Analysis: An Introduction}\\ +
+\bsp\bsp\verb+        ISBN 3-540-66817-9\\                                +
+\bsp\bsp\verb+           This book is well written and a fun read\ldots.} +
+\bsp\bsp\verb+\end{thebibliography}                                       +
+\eSecBox
+
+
+\sSecBox{Special Symbols}
+\bsp\srb{5pt}{\P }\srb{15pt}{\bks{P} }\bsp\srb{5pt}{\S }\srb{15pt}{\bks{S} }\bsp\srb{5pt}{\dag }\srb{15pt}{\bks{dag} }\bsp\srb{5pt}{\ddag }\srb{15pt}{\bks{ddag} }\bsp\srb{5pt}{\pounds   }\srb{25pt}{\bks{pounds}   }\bsp\srb{5pt}{\copyright}\srb{30pt}{\bks{copyright}}
+\eSecBox
+
+\sSecBox{Math Mode Symbols}
+\blt Various Symbols
+   \srb{5pt}{\(\alpha        \)}\srb{30pt}{alpha        }\srb{5pt}{\(\Gamma         \)}\srb{26pt}{Gamma         }\srb{5pt}{\(\varphi       \)}\srb{27pt}{varphi       }\srb{5pt}{\(\diamond       \)}\srb{30pt}{diamond       }\srb{9pt}{\(\leftarrow           \)}\srb{30pt}{leftarrow             }
+   \srb{5pt}{\(\beta         \)}\srb{30pt}{beta         }\srb{5pt}{\(\Delta         \)}\srb{26pt}{Delta         }\srb{5pt}{\(\chi          \)}\srb{27pt}{chi          }\srb{5pt}{\(\angle         \)}\srb{30pt}{angle         }\srb{9pt}{\(\Leftarrow           \)}\srb{30pt}{Leftarrow             }
+   \srb{5pt}{\(\gamma        \)}\srb{30pt}{gamma        }\srb{5pt}{\(\Theta         \)}\srb{26pt}{Theta         }\srb{5pt}{\(\psi          \)}\srb{27pt}{psi          }\srb{5pt}{\(\bot           \)}\srb{30pt}{bot           }\srb{9pt}{\(\rightarrow          \)}\srb{30pt}{rightarrow            }
+   \srb{5pt}{\(\delta        \)}\srb{30pt}{delta        }\srb{5pt}{\(\Lambda        \)}\srb{26pt}{Lambda        }\srb{5pt}{\(\omega        \)}\srb{27pt}{omega        }\srb{5pt}{\(\oplus         \)}\srb{30pt}{oplus         }\srb{9pt}{\(\Rightarrow          \)}\srb{30pt}{Rightarrow            }
+   \srb{5pt}{\(\epsilon      \)}\srb{30pt}{epsilon      }\srb{5pt}{\(\Xi            \)}\srb{26pt}{Xi            }\srb{5pt}{\(\prec         \)}\srb{27pt}{prec         }\srb{5pt}{\(\ominus        \)}\srb{30pt}{ominus        }\srb{9pt}{\(\leftrightarrow      \)}\srb{30pt}{leftrightarrow        }
+   \srb{5pt}{\(\varepsilon   \)}\srb{30pt}{varepsilon   }\srb{5pt}{\(\Pi            \)}\srb{26pt}{Pi            }\srb{5pt}{\(\succeq       \)}\srb{27pt}{succeq       }\srb{5pt}{\(\otimes        \)}\srb{30pt}{otimes        }\srb{9pt}{\(\Leftrightarrow      \)}\srb{30pt}{Leftrightarrow        }
+   \srb{5pt}{\(\zeta         \)}\srb{30pt}{zeta         }\srb{5pt}{\(\Sigma         \)}\srb{26pt}{Sigma         }\srb{5pt}{\(\ldots        \)}\srb{27pt}{ldots        }\srb{5pt}{\(\oslash        \)}\srb{30pt}{oslash        }\srb{9pt}{\(\mapsto              \)}\srb{30pt}{mapsto                }
+   \srb{5pt}{\(\eta          \)}\srb{30pt}{eta          }\srb{5pt}{\(\Upsilon       \)}\srb{26pt}{Upsilon       }\srb{5pt}{\(\cdots        \)}\srb{27pt}{cdots        }\srb{5pt}{\(\odot          \)}\srb{30pt}{odot          }\srb{9pt}{\(\hookleftarrow       \)}\srb{30pt}{hookleftarrow         }
+   \srb{5pt}{\(\theta        \)}\srb{30pt}{theta        }\srb{5pt}{\(\Phi           \)}\srb{26pt}{Phi           }\srb{5pt}{\(\aleph        \)}\srb{27pt}{aleph        }\srb{5pt}{\(\bigcirc       \)}\srb{30pt}{bigcirc       }\srb{9pt}{\(\leftharpoonup       \)}\srb{30pt}{leftharpoonup         }
+   \srb{5pt}{\(\vartheta     \)}\srb{30pt}{vartheta     }\srb{5pt}{\(\Psi           \)}\srb{26pt}{Psi           }\srb{5pt}{\(\prime        \)}\srb{27pt}{prime        }\srb{5pt}{\(\dagger        \)}\srb{30pt}{dagger        }\srb{9pt}{\(\leftharpoondown     \)}\srb{30pt}{leftharpoondown       }
+   \srb{5pt}{\(\iota         \)}\srb{30pt}{iota         }\srb{5pt}{\(\Omega         \)}\srb{26pt}{Omega         }\srb{5pt}{\(\forall       \)}\srb{27pt}{forall       }\srb{5pt}{\(\ddagger       \)}\srb{30pt}{ddagger       }\srb{9pt}{\(\longleftarrow       \)}\srb{30pt}{longleftarrow         }
+   \srb{5pt}{\(\kappa        \)}\srb{30pt}{kappa        }\srb{5pt}{\(\doteq         \)}\srb{26pt}{doteq         }\srb{5pt}{\(\infty        \)}\srb{27pt}{infty        }\srb{5pt}{\(\amalg         \)}\srb{30pt}{amalg         }\srb{9pt}{\(\Longleftarrow       \)}\srb{30pt}{Longleftarrow         }
+   \srb{5pt}{\(\lambda       \)}\srb{30pt}{lambda       }\srb{5pt}{\(\pm            \)}\srb{26pt}{pm            }\srb{5pt}{\(\hbar         \)}\srb{27pt}{hbar         }\srb{5pt}{\(\succ          \)}\srb{30pt}{succ          }\srb{9pt}{\(\longrightarrow      \)}\srb{30pt}{longrightarrow        }
+   \srb{5pt}{\(\mu           \)}\srb{30pt}{mu           }\srb{5pt}{\(\mp            \)}\srb{26pt}{mp            }\srb{5pt}{\(\emptyset     \)}\srb{27pt}{emptyset     }\srb{5pt}{\(\parallel      \)}\srb{30pt}{parallel      }\srb{9pt}{\(\Longrightarrow      \)}\srb{30pt}{Longrightarrow        }
+   \srb{5pt}{\(\nu           \)}\srb{30pt}{nu           }\srb{5pt}{\(\times         \)}\srb{26pt}{times         }\srb{5pt}{\(\exists       \)}\srb{27pt}{exists       }\srb{5pt}{\(\subseteq      \)}\srb{30pt}{subseteq      }\srb{9pt}{\(\longleftrightarrow  \)}\srb{30pt}{longleftrightarrow    }
+   \srb{5pt}{\(\xi           \)}\srb{30pt}{xi           }\srb{5pt}{\(\div           \)}\srb{26pt}{div           }\srb{5pt}{\(\nabla        \)}\srb{27pt}{nabla        }\srb{5pt}{\(\propto        \)}\srb{30pt}{propto        }\srb{9pt}{\(\Longleftrightarrow  \)}\srb{30pt}{Longleftrightarrow    }
+   \srb{5pt}{\(\o            \)}\srb{30pt}{o            }\srb{5pt}{\(\ast           \)}\srb{26pt}{ast           }\srb{5pt}{\(\surd         \)}\srb{27pt}{surd         }\srb{5pt}{\(\geq           \)}\srb{30pt}{geq           }\srb{9pt}{\(\longmapsto          \)}\srb{30pt}{longmapsto            }
+   \srb{5pt}{\(\pi           \)}\srb{30pt}{pi           }\srb{5pt}{\(\star          \)}\srb{26pt}{star          }\srb{5pt}{\(\leq          \)}\srb{27pt}{leq          }\srb{5pt}{\(\triangle      \)}\srb{30pt}{triangle      }\srb{9pt}{\(\hookrightarrow      \)}\srb{30pt}{hookrightarrow}
+   \srb{5pt}{\(\varpi        \)}\srb{30pt}{varpi        }\srb{5pt}{\(\circ          \)}\srb{26pt}{circ          }\srb{5pt}{\(\imath        \)}\srb{27pt}{imath        }\srb{5pt}{\(\sim           \)}\srb{30pt}{sim           }\srb{9pt}{\(\rightharpoonup      \)}\srb{30pt}{rightharpoonup        }
+   \srb{5pt}{\(\rho          \)}\srb{30pt}{rho          }\srb{5pt}{\(\bullet        \)}\srb{26pt}{bullet        }\srb{5pt}{\(\jmath        \)}\srb{27pt}{jmath        }\srb{5pt}{\(\subset        \)}\srb{30pt}{subset        }\srb{9pt}{\(\rightharpoondown    \)}\srb{30pt}{rightharpoondown      }
+   \srb{5pt}{\(\varrho       \)}\srb{30pt}{varrho       }\srb{5pt}{\(\cdot          \)}\srb{26pt}{cdot          }\srb{5pt}{\(\ell          \)}\srb{27pt}{ell          }\srb{5pt}{\(\supseteq      \)}\srb{30pt}{supseteq      }\srb{9pt}{\(\uparrow             \)}\srb{30pt}{uparrow               }
+   \srb{5pt}{\(\sigma        \)}\srb{30pt}{sigma        }\srb{5pt}{\(\cap           \)}\srb{26pt}{cap           }\srb{5pt}{\(\neg          \)}\srb{27pt}{neg          }\srb{5pt}{\(\neq           \)}\srb{30pt}{neq           }\srb{9pt}{\(\Uparrow             \)}\srb{30pt}{Uparrow               }
+   \srb{5pt}{\(\varsigma     \)}\srb{30pt}{varsigma     }\srb{5pt}{\(\cup           \)}\srb{26pt}{cup           }\srb{5pt}{\(\top          \)}\srb{27pt}{top          }\srb{5pt}{\(\equiv         \)}\srb{30pt}{equiv         }\srb{9pt}{\(\downarrow           \)}\srb{30pt}{downarrow             }
+   \srb{5pt}{\(\tau          \)}\srb{30pt}{tau          }\srb{5pt}{\(\vee           \)}\srb{26pt}{vee           }\srb{5pt}{\(\flat         \)}\srb{27pt}{flat         }\srb{5pt}{\(\perp          \)}\srb{30pt}{perp          }\srb{9pt}{\(\Downarrow           \)}\srb{30pt}{Downarrow             }
+   \srb{5pt}{\(\upsilon      \)}\srb{30pt}{upsilon      }\srb{5pt}{\(\wedge         \)}\srb{26pt}{wedge         }\srb{5pt}{\(\natural      \)}\srb{27pt}{natural      }\srb{5pt}{\(\ll            \)}\srb{30pt}{ll            }\srb{9pt}{\(\updownarrow         \)}\srb{30pt}{updownarrow           }
+   \srb{5pt}{\(\phi          \)}\srb{30pt}{phi          }\srb{5pt}{\(\wr            \)}\srb{26pt}{wr            }\srb{5pt}{\(\sharp        \)}\srb{27pt}{sharp        }\srb{5pt}{\(\supset        \)}\srb{30pt}{supset        }\srb{9pt}{\(\Updownarrow         \)}\srb{30pt}{Updownarrow           }
+   \srb{5pt}{\(\partial      \)}\srb{30pt}{partial      }\srb{5pt}{\(\wp            \)}\srb{26pt}{wp            }\srb{5pt}{\(\searrow      \)}\srb{27pt}{searrow      }\srb{5pt}{\(\in           \)}\srb{30pt}{in             }\srb{9pt}{\(\triangleright       \)}\srb{30pt}{triangleright         }
+   \srb{5pt}{\(\nearrow      \)}\srb{30pt}{nearrow      }\srb{5pt}{\(\cong          \)}\srb{26pt}{cong          }\srb{5pt}{\(\swarrow      \)}\srb{27pt}{swarrow      }\srb{5pt}{\(\nwarrow      \)}\srb{30pt}{nwarrow        }\srb{9pt}{\(\triangleleft        \)}\srb{30pt}{triangleleft          }
+\blt Funny Shaped Dots
+   \srb{7pt}{\(\vdots         \)}\srb{30pt}{vdots         }\srb{7pt}{\(\ddots         \)}\srb{30pt}{ddots         }
+\blt Variable-sized symbols
+   \srb{7pt}{\(\sum       \)}\srb{30pt}{sum       }\srb{7pt}{\(\prod      \)}\srb{30pt}{prod      }\srb{7pt}{\(\coprod    \)}\srb{30pt}{coprod    }\srb{7pt}{\(\int       \)}\srb{30pt}{int       }\srb{7pt}{\(\bigoplus  \)}\srb{30pt}{bigoplus  }
+   \srb{7pt}{\(\oint      \)}\srb{30pt}{oint      }\srb{7pt}{\(\bigcap    \)}\srb{30pt}{bigcap    }\srb{7pt}{\(\bigcup    \)}\srb{30pt}{bigcup    }\srb{7pt}{\(\bigsqcup  \)}\srb{30pt}{bigsqcup  }\srb{7pt}{\(\biguplus  \)}\srb{30pt}{biguplus  }
+   \srb{7pt}{\(\bigvee    \)}\srb{30pt}{bigvee    }\srb{7pt}{\(\bigwedge  \)}\srb{30pt}{bigwedge  }\srb{7pt}{\(\bigodot   \)}\srb{30pt}{bigodot   }\srb{7pt}{\(\bigotimes \)}\srb{30pt}{bigotimes }
+\blt Delimiters
+   \srb{5pt}{\(\uparrow      \)}\srb{30pt}{uparrow      }\srb{5pt}{\(\Uparrow      \)}\srb{30pt}{Uparrow      }\srb{5pt}{\(\downarrow    \)}\srb{30pt}{downarrow    }\srb{5pt}{\(\Downarrow    \)}\srb{30pt}{Downarrow    }\srb{5pt}{\(\{            \)}\srb{30pt}{\{           }
+   \srb{5pt}{\(\}            \)}\srb{30pt}{\}           }\srb{5pt}{\(\updownarrow  \)}\srb{30pt}{updownarrow  }\srb{5pt}{\(\Updownarrow  \)}\srb{30pt}{Updownarrow  }\srb{5pt}{\(\lfloor       \)}\srb{30pt}{lfloor       }\srb{5pt}{\(\rfloor       \)}\srb{30pt}{rfloor       }
+   \srb{5pt}{\(\lceil        \)}\srb{30pt}{lceil        }\srb{5pt}{\(\rceil        \)}\srb{30pt}{rceil        }\srb{5pt}{\(\langle       \)}\srb{30pt}{langle       }\srb{5pt}{\(\rangle       \)}\srb{30pt}{rangle       }\srb{5pt}{\(\backslash    \)}\srb{30pt}{backslash    } 
+\blt Large Delimiters
+   \srb{5pt}{\(\rmoustache \)}\srb{30pt}{rmoustache }\srb{5pt}{\(\lmoustache \)}\srb{30pt}{lmoustache }\srb{5pt}{\(\rgroup     \)}\srb{30pt}{rgroup     }\srb{5pt}{\(\lgroup     \)}\srb{30pt}{lgroup     }
+   \srb{5pt}{\(\arrowvert  \)}\srb{30pt}{arrowvert  }\srb{5pt}{\(\Arrowvert  \)}\srb{30pt}{Arrowvert  }\srb{5pt}{\(\bracevert  \)}\srb{30pt}{bracevert  }
+\eSecBox
+
+\sSecBox{AMS Math Mode Symbols}
+   \srb{8pt}{\(\ulcorner                 \)}\srb{55pt}{ulcorner            }\srb{8pt}{\(\urcorner                 \)}\srb{55pt}{urcorner            }\srb{8pt}{\(\llcorner                 \)}\srb{55pt}{llcorner            }\srb{8pt}{\(\lrcorner                 \)}\srb{55pt}{lrcorner            }
+   \srb{8pt}{\(\beth                     \)}\srb{55pt}{beth                }\srb{8pt}{\(\daleth                   \)}\srb{55pt}{daleth              }\srb{8pt}{\(\gimel                    \)}\srb{55pt}{gimel               }\srb{8pt}{\(\digamma                  \)}\srb{55pt}{digamma             }\srb{8pt}{\(\varkappa                 \)}\srb{55pt}{varkappa            }
+   \srb{8pt}{\(\Lsh                      \)}\srb{55pt}{Lsh                 }\srb{8pt}{\(\looparrowleft            \)}\srb{55pt}{looparrowleft       }\srb{8pt}{\(\downdownarrows           \)}\srb{55pt}{downdownarrows      }\srb{8pt}{\(\curvearrowleft           \)}\srb{55pt}{curvearrowleft      }\srb{8pt}{\(\rightarrowtail           \)}\srb{55pt}{rightarrowtail      }\srb{8pt}{\(\leftleftarrows           \)}\srb{55pt}{leftleftarrows      }\srb{8pt}{\(\downharpoonright         \)}\srb{55pt}{downharpoonright    }
+   \srb{8pt}{\(\Rsh                      \)}\srb{55pt}{Rsh                 }\srb{8pt}{\(\upharpoonleft            \)}\srb{55pt}{upharpoonleft       }\srb{8pt}{\(\rightleftarrows          \)}\srb{55pt}{rightleftarrows     }\srb{8pt}{\(\upharpoonright           \)}\srb{55pt}{upharpoonright      }\srb{8pt}{\(\dashrightarrow           \)}\srb{55pt}{dashrightarrow      }\srb{8pt}{\(\rightleftarrows          \)}\srb{55pt}{rightleftarrows     }\srb{8pt}{\(\twoheadleftarrow         \)}\srb{55pt}{twoheadleftarrow    }
+   \srb{8pt}{\(\multimap                 \)}\srb{55pt}{multimap            }\srb{8pt}{\(\leftarrowtail            \)}\srb{55pt}{leftarrowtail       }\srb{8pt}{\(\curvearrowright          \)}\srb{55pt}{curvearrowright     }\srb{8pt}{\(\circlearrowright         \)}\srb{55pt}{circlearrowright    }\srb{8pt}{\(\rightsquigarrow          \)}\srb{55pt}{rightsquigarrow     }\srb{8pt}{\(\leftrightharpoons        \)}\srb{55pt}{leftrightharpoons   }
+   \srb{8pt}{\(\Lleftarrow               \)}\srb{55pt}{Lleftarrow          }\srb{8pt}{\(\dashleftarrow            \)}\srb{55pt}{dashleftarrow       }\srb{8pt}{\(\circlearrowleft          \)}\srb{55pt}{circlearrowleft     }\srb{8pt}{\(\leftrightarrows          \)}\srb{55pt}{leftrightarrows     }\srb{8pt}{\(\rightrightarrows         \)}\srb{55pt}{rightrightarrow     }\srb{8pt}{\(\rightleftharpoons        \)}\srb{55pt}{rightleftharpoons   }
+   \srb{8pt}{\(\upuparrows               \)}\srb{55pt}{upuparrows          }\srb{8pt}{\(\looparrowright           \)}\srb{55pt}{looparrowright      }\srb{8pt}{\(\downharpoonleft          \)}\srb{55pt}{downharpoonleft     }\srb{8pt}{\(\rightrightarrows         \)}\srb{55pt}{rightrightarrows    }\srb{8pt}{\(\twoheadrightarrow        \)}\srb{55pt}{twoheadrightarrow   }\srb{8pt}{\(\leftrightsquigarrow      \)}\srb{55pt}{leftrightsquigarrow }   
+   \srb{8pt}{\(\nleftarrow               \)}\srb{55pt}{nleftarrow          }\srb{8pt}{\(\nrightarrow              \)}\srb{55pt}{nrightarrow         }\srb{8pt}{\(\nLeftarrow               \)}\srb{55pt}{nLeftarrow          }\srb{8pt}{\(\nRightarrow              \)}\srb{55pt}{nRightarrow         }\srb{8pt}{\(\nleftrightarrow          \)}\srb{55pt}{nleftrightarrow     }\srb{8pt}{\(\nLeftrightarrow          \)}\srb{55pt}{nLeftrightarrow     }
+   \srb{8pt}{\(\ggg                      \)}\srb{55pt}{ggg                 }\srb{8pt}{\(\lessdot                  \)}\srb{55pt}{lessdot             }\srb{8pt}{\(\sqsupset                 \)}\srb{55pt}{sqsupset            }\srb{8pt}{\(\backsimeq                \)}\srb{55pt}{backsimeq           }\srb{8pt}{\(\eqcirc                   \)}\srb{55pt}{eqcirc              }\srb{8pt}{\(\backsim                  \)}\srb{55pt}{backsim             }\srb{8pt}{\(\gtrsim                   \)}\srb{55pt}{gtrsim              }
+   \srb{8pt}{\(\lll                      \)}\srb{55pt}{lll                 }\srb{8pt}{\(\succsim                  \)}\srb{55pt}{succsim             }\srb{8pt}{\(\thicksim                 \)}\srb{55pt}{thicksim            }\srb{8pt}{\(\Vdash                    \)}\srb{55pt}{Vdash               }\srb{8pt}{\(\Bumpeq                   \)}\srb{55pt}{Bumpeq              }\srb{8pt}{\(\because                  \)}\srb{55pt}{because             }\srb{8pt}{\(\sqsubset                 \)}\srb{55pt}{sqsubset            }
+   \srb{8pt}{\(\geqq                     \)}\srb{55pt}{geqq                }\srb{8pt}{\(\precsim                  \)}\srb{55pt}{precsim             }\srb{8pt}{\(\subseteqq                \)}\srb{55pt}{subseteqq           }\srb{8pt}{\(\smallsmile               \)}\srb{55pt}{smallsmile          }\srb{8pt}{\(\Subset                   \)}\srb{55pt}{Subset              }\srb{8pt}{\(\between                  \)}\srb{55pt}{between             }\srb{8pt}{\(\shortmid                 \)}\srb{55pt}{shortmid            }
+   \srb{8pt}{\(\vDash                    \)}\srb{55pt}{vDash               }\srb{8pt}{\(\lessgtr                  \)}\srb{55pt}{lessgtr             }\srb{8pt}{\(\pitchfork                \)}\srb{55pt}{pitchfork           }\srb{8pt}{\(\smallfrown               \)}\srb{55pt}{smallfrown          }\srb{8pt}{\(\Supset                   \)}\srb{55pt}{Supset              }\srb{8pt}{\(\geqslant                 \)}\srb{55pt}{geqslant            }\srb{8pt}{\(\succcurlyeq              \)}\srb{55pt}{succcurlyeq         }
+   \srb{8pt}{\(\leqq                     \)}\srb{55pt}{leqq                }\srb{8pt}{\(\lesssim                  \)}\srb{55pt}{lesssim             }\srb{8pt}{\(\supseteqq                \)}\srb{55pt}{supseteqq           }\srb{8pt}{\(\varpropto                \)}\srb{55pt}{varpropto           }\srb{8pt}{\(\Vvdash                   \)}\srb{55pt}{Vvdash              }\srb{8pt}{\(\approxeq                 \)}\srb{55pt}{approxeq            }\srb{8pt}{\(\risingdotseq             \)}\srb{55pt}{risingdotseq        }
+   \srb{8pt}{\(\gtrless                  \)}\srb{55pt}{gtrless             }\srb{8pt}{\(\lesseqgtr                \)}\srb{55pt}{lesseqgtr           }\srb{8pt}{\(\lessapprox               \)}\srb{55pt}{lessapprox          }\srb{8pt}{\(\precapprox               \)}\srb{55pt}{precapprox          }\srb{8pt}{\(\succapprox               \)}\srb{55pt}{succapprox          }\srb{8pt}{\(\eqslantgtr               \)}\srb{55pt}{eqslantgtr          }\srb{8pt}{\(\blacktriangleleft        \)}\srb{55pt}{blacktriangleleft   }
+   \srb{8pt}{\(\curlyeqprec              \)}\srb{55pt}{curlyeqprec         }\srb{8pt}{\(\curlyeqsucc              \)}\srb{55pt}{curlyeqsucc         }\srb{8pt}{\(\shortparallel            \)}\srb{55pt}{shortparallel       }\srb{8pt}{\(\fallingdotseq            \)}\srb{55pt}{fallingdotseq       }\srb{8pt}{\(\therefore                \)}\srb{55pt}{therefore           }\srb{8pt}{\(\triangleq                \)}\srb{55pt}{triangleq           }\srb{8pt}{\(\blacktriangleright       \)}\srb{55pt}{blacktriangleright  }
+   \srb{8pt}{\(\eqslantless              \)}\srb{55pt}{eqslantless         }\srb{8pt}{\(\backepsilon              \)}\srb{55pt}{backepsilon         }\srb{8pt}{\(\trianglelefteq           \)}\srb{55pt}{trianglelefteq      }\srb{8pt}{\(\trianglerighteq          \)}\srb{55pt}{trianglerighteq     }\srb{8pt}{\(\bumpeq                   \)}\srb{55pt}{bumpeq              }\srb{8pt}{\(\doteqdot                 \)}\srb{55pt}{doteqdot            }\srb{8pt}{\(\gtrdot                   \)}\srb{55pt}{gtrdot              }
+   \srb{8pt}{\(\thickapprox              \)}\srb{55pt}{thickapprox         }\srb{8pt}{\(\preccurlyeq              \)}\srb{55pt}{preccurlyeq         }\srb{8pt}{\(\vartriangleleft          \)}\srb{55pt}{vartriangleleft     }\srb{8pt}{\(\vartriangleright         \)}\srb{55pt}{vartriangleright    }\srb{8pt}{\(\circeq                   \)}\srb{55pt}{circeq              }\srb{8pt}{\(\leqslant                 \)}\srb{55pt}{leqslant            }   
+   \srb{8pt}{\(\gnapprox                 \)}\srb{55pt}{gnapprox            }\srb{8pt}{\(\gneq                     \)}\srb{55pt}{gneq                }\srb{8pt}{\(\gneqq                    \)}\srb{55pt}{gneqq               }\srb{8pt}{\(\gnsim                    \)}\srb{55pt}{gnsim               }\srb{8pt}{\(\gvertneqq                \)}\srb{55pt}{gvertneqq           }\srb{8pt}{\(\ntriangleleft            \)}\srb{55pt}{ntriangleleft       }\srb{8pt}{\(\ntrianglelefteq          \)}\srb{55pt}{ntrianglelefteq     }
+   \srb{8pt}{\(\lnapprox                 \)}\srb{55pt}{lnapprox            }\srb{8pt}{\(\lneq                     \)}\srb{55pt}{lneq                }\srb{8pt}{\(\lneqq                    \)}\srb{55pt}{lneqq               }\srb{8pt}{\(\lnsim                    \)}\srb{55pt}{lnsim               }\srb{8pt}{\(\lvertneqq                \)}\srb{55pt}{lvertneqq           }\srb{8pt}{\(\nvDash                   \)}\srb{55pt}{nvDash              }\srb{8pt}{\(\nvdash                   \)}\srb{55pt}{nvdash              }
+   \srb{8pt}{\(\nVDash                   \)}\srb{55pt}{nVDash              }\srb{8pt}{\(\ncong                    \)}\srb{55pt}{ncong               }\srb{8pt}{\(\ngeq                     \)}\srb{55pt}{ngeq                }\srb{8pt}{\(\ngeqq                    \)}\srb{55pt}{ngeqq               }\srb{8pt}{\(\ngeqslant                \)}\srb{55pt}{ngeqslant           }\srb{8pt}{\(\subsetneqq               \)}\srb{55pt}{subsetneqq          }\srb{8pt}{\(\succnapprox              \)}\srb{55pt}{succnapprox         }
+   \srb{8pt}{\(\ngtr                     \)}\srb{55pt}{ngtr                }\srb{8pt}{\(\nleq                     \)}\srb{55pt}{nleq                }\srb{8pt}{\(\nleqq                    \)}\srb{55pt}{nleqq               }\srb{8pt}{\(\nleqslant                \)}\srb{55pt}{nleqslant           }\srb{8pt}{\(\nless                    \)}\srb{55pt}{nless               }\srb{8pt}{\(\varsubsetneq             \)}\srb{55pt}{varsubsetneq        }\srb{8pt}{\(\varsubsetneqq            \)}\srb{55pt}{varsubsetneqq       }
+   \srb{8pt}{\(\nmid                     \)}\srb{55pt}{nmid                }\srb{8pt}{\(\nparallel                \)}\srb{55pt}{nparallel           }\srb{8pt}{\(\nprec                    \)}\srb{55pt}{nprec               }\srb{8pt}{\(\npreceq                  \)}\srb{55pt}{npreceq             }\srb{8pt}{\(\nshortmid                \)}\srb{55pt}{nshortmid           }\srb{8pt}{\(\nsupseteq                \)}\srb{55pt}{nsupseteq           }\srb{8pt}{\(\nsupseteqq               \)}\srb{55pt}{nsupseteqq          }
+   \srb{8pt}{\(\nshortparallel           \)}\srb{55pt}{nshortparallel      }\srb{8pt}{\(\nsim                     \)}\srb{55pt}{nsim                }\srb{8pt}{\(\nsubseteq                \)}\srb{55pt}{nsubseteq           }\srb{8pt}{\(\nsucc                    \)}\srb{55pt}{nsucc               }\srb{8pt}{\(\nsucceq                  \)}\srb{55pt}{nsucceq             }\srb{8pt}{\(\ntrianglerighteq         \)}\srb{55pt}{ntrianglerighteq    }\srb{8pt}{\(\nvDash                   \)}\srb{55pt}{nvDash              }
+   \srb{8pt}{\(\nsucceq                  \)}\srb{55pt}{nsucceq             }\srb{8pt}{\(\precnsim                 \)}\srb{55pt}{precnsim            }\srb{8pt}{\(\subsetneq                \)}\srb{55pt}{subsetneq           }\srb{8pt}{\(\succnsim                 \)}\srb{55pt}{succnsim            }\srb{8pt}{\(\precnapprox              \)}\srb{55pt}{precnapprox         }
+   \srb{8pt}{\(\ntriangleright           \)}\srb{55pt}{ntriangleright      }\srb{8pt}{\(\supsetneq                \)}\srb{55pt}{supsetneq           }\srb{8pt}{\(\supsetneqq               \)}\srb{55pt}{supsetneqq          }\srb{8pt}{\(\varsupsetneq             \)}\srb{55pt}{varsupsetneq        }\srb{8pt}{\(\varsupsetneqq            \)}\srb{55pt}{varsupsetneqq       }\srb{8pt}{\(\smallsetminus            \)}\srb{55pt}{smallsetminus       }\srb{8pt}{\(\veebar                   \)}\srb{55pt}{veebar              }
+   \srb{8pt}{\(\Cap                      \)}\srb{55pt}{Cap                 }\srb{8pt}{\(\Cup                      \)}\srb{55pt}{Cup                 }\srb{8pt}{\(\barwedge                 \)}\srb{55pt}{barwedge            }\srb{8pt}{\(\boxdot                   \)}\srb{55pt}{boxdot              }\srb{8pt}{\(\boxminus                 \)}\srb{55pt}{boxminus            }\srb{8pt}{\(\boxplus                  \)}\srb{55pt}{boxplus             }\srb{8pt}{\(\boxtimes                 \)}\srb{55pt}{boxtimes            }
+   \srb{8pt}{\(\centerdot                \)}\srb{55pt}{centerdot           }\srb{8pt}{\(\circledast               \)}\srb{55pt}{circledast          }\srb{8pt}{\(\circledcirc              \)}\srb{55pt}{circledcirc         }\srb{8pt}{\(\circleddash              \)}\srb{55pt}{circleddash         }\srb{8pt}{\(\curlyvee                 \)}\srb{55pt}{curlyvee            }\srb{8pt}{\(\curlywedge               \)}\srb{55pt}{curlywedge          }\srb{8pt}{\(\divideontimes            \)}\srb{55pt}{divideontimes       }
+   \srb{8pt}{\(\dotplus                  \)}\srb{55pt}{dotplus             }\srb{8pt}{\(\doublebarwedge           \)}\srb{55pt}{doublebarwedge      }\srb{8pt}{\(\intercal                 \)}\srb{55pt}{intercal            }\srb{8pt}{\(\leftthreetimes           \)}\srb{55pt}{leftthreetimes      }\srb{8pt}{\(\ltimes                   \)}\srb{55pt}{ltimes              }\srb{8pt}{\(\rightthreetimes          \)}\srb{55pt}{rightthreetimes     }\srb{8pt}{\(\rtimes                   \)}\srb{55pt}{rtimes              }   
+   \srb{8pt}{\(\Bbbk                     \)}\srb{55pt}{Bbbk                }\srb{8pt}{\(\Finv                     \)}\srb{55pt}{Finv                }\srb{8pt}{\(\Game                     \)}\srb{55pt}{Game                }\srb{8pt}{\(\angle                    \)}\srb{55pt}{angle               }\srb{8pt}{\(\backprime                \)}\srb{55pt}{backprime           }\srb{8pt}{\(\bigstar                  \)}\srb{55pt}{bigstar             }\srb{8pt}{\(\blacklozenge             \)}\srb{55pt}{blacklozenge        }
+   \srb{8pt}{\(\blacksquare              \)}\srb{55pt}{blacksquare         }\srb{8pt}{\(\blacktriangle            \)}\srb{55pt}{blacktriangle       }\srb{8pt}{\(\blacktriangledown        \)}\srb{55pt}{blacktriangledown   }\srb{8pt}{\(\circledS                 \)}\srb{55pt}{circledS            }\srb{8pt}{\(\complement               \)}\srb{55pt}{complement          }\srb{8pt}{\(\diagdown                 \)}\srb{55pt}{diagdown            }\srb{8pt}{\(\diagup                   \)}\srb{55pt}{diagup              }
+   \srb{8pt}{\(\eth                      \)}\srb{55pt}{eth                 }\srb{8pt}{\(\hbar                     \)}\srb{55pt}{hbar                }\srb{8pt}{\(\hslash                   \)}\srb{55pt}{hslash              }\srb{8pt}{\(\lozenge                  \)}\srb{55pt}{lozenge             }\srb{8pt}{\(\measuredangle            \)}\srb{55pt}{measuredangle       }\srb{8pt}{\(\mho                      \)}\srb{55pt}{mho                 }\srb{8pt}{\(\nexists                  \)}\srb{55pt}{nexists             }
+   \srb{8pt}{\(\sphericalangle           \)}\srb{55pt}{sphericalangle      }\srb{8pt}{\(\square                   \)}\srb{55pt}{square              }\srb{8pt}{\(\triangledown             \)}\srb{55pt}{triangledown        }\srb{8pt}{\(\varnothing               \)}\srb{55pt}{varnothing          }\srb{8pt}{\(\vartriangle              \)}\srb{55pt}{vartriangle         }
+\eSecBox
+
+\sSecBox{Mathematical Environments}
+\srb{115pt}{\blt\$ \ldots \$ OR \bks( \ldots \bks)                   } Inline formula
+\srb{115pt}{\blt\$\$ \ldots \$\$  OR \bks[ \ldots \bks]              } Displayed formula
+\srb{115pt}{\blt\bks{begin}\{equation\} \ldots \bks{end}\{equation\} } Numbered equation
+\srb{115pt}{\blt\bks{begin}\{eqnarray\} \ldots \bks{end}\{eqnarray\} } Numbered array (rcl) of equations
+\eSecBox
+
+\newsavebox{\aMathBoxAAA}
+\savebox{\aMathBoxAAA}{\(\begin{array}{cc} a & b \\ c & d \\ \end{array} \)}
+
+\sSecBox{Common Math Constructs}
+\blt\srb{30pt}{\(\sqrt{abc}                          \)}\verb+\sqrt{abc}                  +   \blt\srb{30pt}{\(\sqrt[n]{abc}   \)}\verb+\sqrt[n]{abc}     + 
+\blt\srb{30pt}{\(\frac{abc}{xyz}                     \)}\verb+\frac{abc}{xyz}             +   \blt\srb{30pt}{\(\stackrel{a}{b} \)}\verb+\stackrel{a}{b}   +
+\blt\srb{30pt}{\(\int\limits\sb{x\in{X}}\!\!\!x\ dx  \)}\verb+\int\limits_{x\in{X}}\!x\ dx+   \blt\srb{30pt}{\(\int\sb0\sp1 x\ dx  \)}\verb+\int_0^1 x\ dx+
+\blt\srb{30pt}{\usebox{\aMathBoxAAA}                   }\verb+\begin{array}{cc} a & b \\ c & d \\ \end{array}+
+\blt\srb{30pt}{\(f'                                  \)}\verb+f'   +
+\eSecBox
+
+
+\sSecBox{\rule{0pt}{1pt}}
+\eSecBox
+
+\sSecBox{Stretching Math Mode Delimiters}
+\blt\srb{35pt}{\(\left(\frac{abc}{xyz}\right)\)        }\verb+\left(\frac{abc}{xyz}\right)        +
+\blt\srb{35pt}{\(\left.\int\frac{abc}{xyz}\right\vert\)}\verb+\left.\int\frac{abc}{xyz}\right\vert+
+\eSecBox
+
+\sSecBox{Over \& Under Delimiters \& Accents}
+\blt Over \& Under
+   \srb{15pt}{\(\widetilde{abc}     \)}\verb+\widetilde{abc}     +\srb{15pt}{\(\widehat{abc}       \)}\verb+\widehat{abc}       +\srb{15pt}{\(\overbrace{abc}     \)}\verb+\overbrace{abc}     +
+   \srb{15pt}{\(\overleftarrow{abc} \)}\verb+\overleftarrow{abc} +\srb{15pt}{\(\overrightarrow{abc}\)}\verb+\overrightarrow{abc}+
+   \srb{15pt}{\(\overline{abc}      \)}\verb+\overline{abc}      +\srb{15pt}{\(\underline{abc}     \)}\verb+\underline{abc}     +\srb{15pt}{\(\underbrace{abc}    \)}\verb+\underbrace{abc}    +
+\blt Accents
+   \srb{4pt}{\(\acute{x} \)}\verb+\acute{x} +   \srb{4pt}{\(\bar{x}   \)}\verb+\bar{x}   +   \srb{4pt}{\(\breve{x} \)}\verb+\breve{x} +   \srb{4pt}{\(\check{x} \)}\verb+\check{x} +   \srb{4pt}{\(\ddot{x}  \)}\verb+\ddot{x}  +
+   \srb{4pt}{\(\dot{x}   \)}\verb+\dot{x}   +   \srb{4pt}{\(\grave{x} \)}\verb+\grave{x} +   \srb{4pt}{\(\hat{x}   \)}\verb+\hat{x}   +   \srb{4pt}{\(\tilde{x} \)}\verb+\tilde{x} +   \srb{4pt}{\(\vec{x}   \)}\verb+\vec{x}   +
+\eSecBox
+
+
+\end{document}
+
+
+
