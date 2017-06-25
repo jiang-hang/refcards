@@ -1,0 +1,9 @@
+
+* 说明
+
+这些tex文档受http://www.mitchr.me/ 中reference cards的启发，目的在于将一些常见的
+需要记忆的东西放在一个pdf文件中，这样比html文件比起来，更实用。
+
+将这些文档编译成pdf的命令是 ~xelatex a.tex~
+
+打算今后逐渐更新新的内容。变成适合我的备忘。
