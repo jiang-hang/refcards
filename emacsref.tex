@@ -59,7 +59,15 @@
 \fbox{{\parbox[b]{3in}{\huge \bf GNU Emacs\\ \tiny 杨学辉 \url{http://www.bagualu.net}  \\ 最近更新 \today}}}
 \tiny
 
-\sSecBox{Help}
+\sSecBox{按键定义}
+\vspace*{\niem}
+\srb{70pt}{                        }\srb{30pt}{         } \srb{70pt}{\blt backspace        }\srb{30pt}{DEL    }
+\srb{70pt}{\blt CTRL               }\srb{30pt}{C        } \srb{70pt}{\blt ALT              }\srb{25pt}{M  }
+\srb{70pt}{\blt SPACE     }\srb{30pt}{SPC} 
+\eSecBox
+
+
+\sSecBox{获得帮助}
 \vspace*{\niem}
 \srb{80pt}{                             }\srb{20pt}{     } \srb{80pt}{\blt Search help (apropos)   }\srb{20pt}{C-h a}
 \srb{80pt}{\blt describe mode           }\srb{20pt}{C-h m} \srb{80pt}{\blt describe key bindings   }\srb{20pt}{C-h b}
@@ -67,14 +75,16 @@
 \srb{80pt}{\blt describe function       }\srb{20pt}{C-h f} \srb{80pt}{\blt describe variable       }\srb{20pt}{C-h v}
 \eSecBox
 
+
+
 \sSecBox{Buffers}
 \vspace*{\niem}
-\srb{70pt}{                        }\srb{30pt}{         } \srb{70pt}{\blt Kill buffer        }\srb{30pt}{C-x k    }
-\srb{70pt}{\blt Go to other buffer }\srb{30pt}{C-x b    } \srb{70pt}{\blt List all buffers   }\srb{25pt}{C-x C-b  }
-\srb{70pt}{\blt Go NEXT buffer     }\srb{30pt}{C-x right} \srb{70pt}{\blt Go PREVIOUS buffer }\srb{25pt}{C-x left }
+\srb{70pt}{                        }\srb{30pt}{         } \srb{70pt}{\blt 关闭buffer        }\srb{30pt}{C-x k    }
+\srb{70pt}{\blt 选择其他buffer }\srb{30pt}{C-x b    } \srb{70pt}{\blt 列出所有buffer   }\srb{25pt}{C-x C-b  }
+\srb{70pt}{\blt 跳到下一个buffer     }\srb{30pt}{C-x right} \srb{70pt}{\blt 跳到上一buffer }\srb{25pt}{C-x left }
 \eSecBox
 
-\sSecBox{Load \& Save Files}
+\sSecBox{加载和保存文件}
 \vspace*{\niem}
 \srb{80pt}{                            }\srb{25pt}{       }\srb{80pt}{\blt Toggle read only       }\srb{25pt}{C-x C-q}
 \srb{80pt}{\blt Find file              }\srb{25pt}{C-x C-f}\srb{80pt}{\blt Find file at point        }\srb{25pt}{ffap}
@@ -83,75 +93,75 @@
 \blt Note: FTP file name syntax:  /username@systemname:/path/file
 \eSecBox
 
-\sSecBox{Movement \& Scrolling}
+\sSecBox{移动光标}
 \vspace*{\niem}
-\srb{125pt}{\rule{0pt}{0pt}                  }\srb{30pt}{Backward        }\srb{30pt}{Forward}
-\srb{125pt}{\blt character                   }\srb{30pt}{C-b             }\srb{30pt}{C-f}
-\srb{125pt}{\blt word                        }\srb{30pt}{M-b             }\srb{30pt}{M-f}
+\srb{125pt}{\rule{0pt}{0pt}                  }\srb{30pt}{向后        }\srb{30pt}{向前}
+\srb{125pt}{\blt 字符                   }\srb{30pt}{C-b             }\srb{30pt}{C-f}
+\srb{125pt}{\blt 单词                        }\srb{30pt}{M-b             }\srb{30pt}{M-f}
 \srb{125pt}{                                 }\srb{30pt}{C-left          }\srb{30pt}{C-right}
-\srb{125pt}{\blt line                        }\srb{30pt}{C-p             }\srb{30pt}{C-n}
-\srb{125pt}{\blt line start/end              }\srb{30pt}{C-a             }\srb{30pt}{C-e}
-\srb{125pt}{\blt sentence                    }\srb{30pt}{M-a             }\srb{30pt}{M-e}
-\srb{125pt}{\blt page                        }\srb{30pt}{C-x [           }\srb{30pt}{C-x ]}
+\srb{125pt}{\blt 行                        }\srb{30pt}{C-p             }\srb{30pt}{C-n}
+\srb{125pt}{\blt 行首行尾              }\srb{30pt}{C-a             }\srb{30pt}{C-e}
+\srb{125pt}{\blt 句                    }\srb{30pt}{M-a             }\srb{30pt}{M-e}
+\srb{125pt}{\blt 页                        }\srb{30pt}{C-x [           }\srb{30pt}{C-x ]}
 \srb{125pt}{\blt sexp                        }\srb{30pt}{M-C-b           }\srb{30pt}{M-C-f}
 \srb{125pt}{                                 }\srb{30pt}{A-left          }\srb{30pt}{A-right}
-\srb{125pt}{\blt paren group/quotes          }\srb{30pt}{M-C-p           }\srb{30pt}{M-C-n}
-\srb{125pt}{\blt up/down paren structure     }\srb{30pt}{M-C-d           }\srb{30pt}{M-C-u}
-\srb{125pt}{\blt function or LaTeX begin/end }\srb{30pt}{M-C-a           }\srb{30pt}{M-C-e}
-\srb{125pt}{\blt buffer start/end            }\srb{30pt}{M-<             }\srb{30pt}{M->}
-\srb{125pt}{\blt Scroll up/down screen       }\srb{30pt}{C-v             }\srb{30pt}{M-v}
+\srb{125pt}{\blt 括号结构          }\srb{30pt}{M-C-p           }\srb{30pt}{M-C-n}
+\srb{125pt}{\blt 向上下移动一个括号结构     }\srb{30pt}{M-C-d           }\srb{30pt}{M-C-u}
+\srb{125pt}{\blt 函数或Latex首尾 }\srb{30pt}{M-C-a           }\srb{30pt}{M-C-e}
+\srb{125pt}{\blt buffer首尾            }\srb{30pt}{M-<             }\srb{30pt}{M->}
+\srb{125pt}{\blt 上下滚屏       }\srb{30pt}{C-v             }\srb{30pt}{M-v}
 \srb{125pt}{                                 }\srb{30pt}{A-v             }\srb{30pt}{}
 \srb{125pt}{                                 }\srb{30pt}{PgUp            }\srb{30pt}{PgDn}
-\srb{125pt}{\blt Scroll left/right screen    }\srb{30pt}{C-x <           }\srb{30pt}{C-x >}
-\srb{125pt}{\blt Center on current line      }\srb{15pt}{\rule{0pt}{0pt} }\srb{30pt}{C-l}
+\srb{125pt}{\blt 左右滚屏    }\srb{30pt}{C-x <           }\srb{30pt}{C-x >}
+\srb{125pt}{\blt 定位到当前行行中      }\srb{15pt}{\rule{0pt}{0pt} }\srb{30pt}{C-l}
 \srb{25pt}{\blt goto }\srb{25pt}{line }\srb{25pt}{char }\srb{30pt}{column }\srb{15pt}{non-blank char}
 \srb{25pt}{          }\srb{25pt}{M-g g}\srb{25pt}{M-g c}\srb{30pt}{M-g TAB}\srb{15pt}{M-m           }
 \eSecBox
 
-\sSecBox{Marking}
+\sSecBox{选择文本}
 \vspace*{\niem}
-\srb{40pt}{                 }\srb{20pt}{       } \srb{60pt}{\blt Swap mark \& point}\srb{20pt}{C-x C-x }\srb{42pt}{\blt Set mark    }\srb{20pt}{C-SPC   }
-\srb{40pt}{\blt mark word   }\srb{20pt}{M-@    } \srb{60pt}{\blt mark paragraph    }\srb{20pt}{M-h     }\srb{42pt}{\blt mark buffer }\srb{20pt}{C-x h   }
-\srb{40pt}{\blt mark sexp   }\srb{20pt}{M-C-SPC} \srb{60pt}{\blt mark function     }\srb{20pt}{M-C-h   }\srb{42pt}{\blt rect mode   }\srb{20pt}{C-x SPC }
+\srb{40pt}{                 }\srb{20pt}{       } \srb{60pt}{\blt Swap mark \& point}\srb{20pt}{C-x C-x }\srb{42pt}{\blt 开始结束选择    }\srb{20pt}{C-SPC   }
+\srb{40pt}{\blt 选中单词   }\srb{20pt}{M-@    } \srb{60pt}{\blt 选中段落    }\srb{20pt}{M-h     }\srb{42pt}{\blt 选中buffer }\srb{20pt}{C-x h   }
+\srb{40pt}{\blt 选择sexp   }\srb{20pt}{M-C-SPC} \srb{60pt}{\blt 选中函数     }\srb{20pt}{M-C-h   }\srb{42pt}{\blt 矩形选择模式   }\srb{20pt}{C-x SPC }
 \eSecBox
 
-\sSecBox{Kill, Yank \& Delete}
+\sSecBox{剪切、复制和删除} 
 \vspace*{\niem}
-\srb{125pt}{\rule{0pt}{0pt}                                 }\srb{30pt}{Backward            }\srb{30pt}{Forward}
-\srb{125pt}{\blt delete-char                                }\srb{30pt}{DEL                 }\srb{30pt}{C-d}
-\srb{125pt}{\blt kill-word                                  }\srb{30pt}{M-DEL               }\srb{30pt}{M-d}
-\srb{125pt}{\blt kill-line                                  }\srb{30pt}{M-0 M-k             }\srb{30pt}{C-k}
-\srb{125pt}{\blt kill-sentence                              }\srb{30pt}{M-x DEL             }\srb{30pt}{M-k}
-\srb{125pt}{\blt kill-sexp                                  }\srb{30pt}{M-C-DEL             }\srb{30pt}{M-C-k}
-\srb{125pt}{\blt kill-entire-line                           }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-S-DEL}
-\srb{125pt}{\blt kill-region                                }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-w}
-\srb{125pt}{\blt copy region                                }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-w}
-\srb{125pt}{\blt kill to \ttit{char} (backward with prefix) }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-z \ttit{char}}
-\srb{125pt}{\blt yank                                       }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-y}
-\srb{125pt}{\blt yank without moveing point                 }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-u C-y}
+\srb{125pt}{\rule{0pt}{0pt}                                 }\srb{30pt}{向后            }\srb{30pt}{向前}
+\srb{125pt}{\blt 删除字符                                }\srb{30pt}{DEL                 }\srb{30pt}{C-d}
+\srb{125pt}{\blt 剪切单词                                  }\srb{30pt}{M-DEL               }\srb{30pt}{M-d}
+\srb{125pt}{\blt 剪切行                                  }\srb{30pt}{M-0 M-k             }\srb{30pt}{C-k}
+\srb{125pt}{\blt 剪切句子                              }\srb{30pt}{M-x DEL             }\srb{30pt}{M-k}
+\srb{125pt}{\blt 剪切sexp                                  }\srb{30pt}{M-C-DEL             }\srb{30pt}{M-C-k}
+\srb{125pt}{\blt 剪切整行                           }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-S-DEL}
+\srb{125pt}{\blt 剪切区域                                }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-w}
+\srb{125pt}{\blt 拷贝区域                                }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-w}
+\srb{125pt}{\blt 剪切到字符\ttit{char} (backward with prefix) }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-z \ttit{char}}
+\srb{125pt}{\blt 粘贴                                       }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-y}
+\srb{125pt}{\blt 粘贴不移动光标                 }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-u C-y}
 \srb{125pt}{\blt yank \ttit{n}th kill                       }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-\ttit{n} C-y}
 \srb{125pt}{\blt copy to kill ring                          }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-w}
 \srb{125pt}{\blt replace yank older kill                    }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-y}
-\srb{125pt}{\blt Delete blank lines at point                }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-x C-o}
-\srb{125pt}{\blt Delete whitespace at point                 }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-\bks}
-\srb{125pt}{\blt Delete indentation                         }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-^}
+\srb{125pt}{\blt 删除当前位置的空行                }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{C-x C-o}
+\srb{125pt}{\blt 删除当前位置的空格                 }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-\bks}
+\srb{125pt}{\blt 删除缩进                         }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-^}
 \srb{125pt}{\blt Append Next Kill                           }\srb{15pt}{\rule{0pt}{0pt}     }\srb{30pt}{M-C-w}
 \srb{125pt}{\blt delete-trailing-whitespace                 }
 \srb{125pt}{\blt delete-whitespace-rectangle}
 \eSecBox
 
-\sSecBox{Registers}
-\srb{165pt}{\blt Append region to register   (delete with prefix) }\srb{50pt}{\meo{C-x r a}}
-\srb{165pt}{\blt Copy region to register     (delete with prefix) }\srb{50pt}{C-x r x}
-\srb{165pt}{\blt Copy rectangle to register  (delete with prefix) }\srb{50pt}{C-x r r}
-\srb{165pt}{\blt Store point in register     (frame with prefix)  }\srb{50pt}{C-x r SPC}
-\srb{165pt}{\blt Store Window configuration in register           }\srb{50pt}{C-x r w}
-\srb{165pt}{\blt Insert region or rectangle from register         }\srb{50pt}{C-x r i}
-\srb{165pt}{\blt Jump to point/frame/window config in register    }\srb{50pt}{C-x r j}
+\sSecBox{寄存器}
+\srb{165pt}{\blt 向寄存器中附加选定区域   (delete with prefix) }\srb{50pt}{\meo{C-x r a}}
+\srb{165pt}{\blt 拷贝区域到寄存器     (delete with prefix) }\srb{50pt}{C-x r x}
+\srb{165pt}{\blt 拷贝矩形区域到寄存器  (delete with prefix) }\srb{50pt}{C-x r r}
+\srb{165pt}{\blt 保存当前位置到寄存器     (frame with prefix)  }\srb{50pt}{C-x r SPC}
+\srb{165pt}{\blt 保存窗口配置到寄存器           }\srb{50pt}{C-x r w}
+\srb{165pt}{\blt 插入寄存器中的内容         }\srb{50pt}{C-x r i}
+\srb{165pt}{\blt 跳到寄存器保存的位置    }\srb{50pt}{C-x r j}
 \srb{165pt}{\blt view-register                                    }
 \eSecBox
 
-\sSecBox{Rectangles}
+\sSecBox{矩形区域操作}
 \srb{30pt}{\blt delete }\srb{25pt}{C-x r d}\srb{30pt}{\blt string }\srb{25pt}{C-x r t}\srb{55pt}{\blt Nnumber Lines   }\srb{25pt}{C-x r N}
 \srb{30pt}{\blt yank   }\srb{25pt}{C-x r y}\srb{30pt}{\blt open   }\srb{25pt}{C-x r o}\srb{55pt}{\blt copy *          }\srb{25pt}{C-x r r}
 \srb{30pt}{\blt kill   }\srb{25pt}{C-x r k}\srb{30pt}{\blt clear  }\srb{25pt}{C-x r c}\srb{55pt}{\blt Tog Rect Select }\srb{25pt}{C-x SPC}
@@ -191,7 +201,7 @@
 \srb{57pt}{\blt Untabify region  }\srb{40pt}{M-x untabify }\srb{55pt}{\blt Tabify region  }\srb{40pt}{M-x tabify   }
 \eSecBox
 
-\sSecBox{Windows}
+\sSecBox{窗口}
 \srb{55pt}{\blt move to other  }\srb{35pt}{C-x o  }\srb{75pt}{\blt delete other window                 }\srb{30pt}{C-x 1  }            
 \srb{55pt}{\blt delete window  }\srb{35pt}{C-x 0  }\srb{75pt}{\blt kill buffer \& window               }\srb{30pt}{C-x 4 0}\srb{30pt}{}
 \blt\srb{65pt}{Resize \& Create       }\srb{30pt}{vertically}horizontally
@@ -200,7 +210,7 @@
 \bsp\srb{65pt}{\blt shrink            }\srb{30pt}{ ---   }\srb{25pt}{C-x \{ }
 \bsp\srb{65pt}{\blt balance-windows   }\srb{30pt}{C-x +  }\srb{25pt}{C-x +  } Works in all directions
 \bsp\srb{65pt}{\blt shrink to fit     }\srb{30pt}{C-x -  }\srb{25pt}{ ---   }
-\srb{125pt}{\blt After windmove-default-keybindings  }
+\srb{125pt}{\blt 窗口间跳转  需要安装包window-jump并调用windmove-default-keybindings}
 \srb{57pt}{\bsp\blt windmove-down }\srb{30pt}{S-down } \srb{50pt}{\blt windmove-up   }\srb{20pt}{S-up   }
 \srb{57pt}{\bsp\blt windmove-right}\srb{30pt}{S-right} \srb{50pt}{\blt windmove-left }\srb{20pt}{S-left }
 \blt Do it in another window
