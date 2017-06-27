@@ -1,0 +1,94 @@
+\documentclass[10pt,twocolumn]{article}
+
+
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont={SimHei},ItalicFont={KaiTi}]{FangSong}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{FangSong}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{alltt}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true}
+
+\textheight = 10in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+\parskip = 1pt
+\parindent = 0.0in
+
+\setlength{\hoffset}{-16pt}
+\setlength{\voffset}{-26pt}
+
+\newlength{\niem}
+\setlength{\niem}{-1.2em}
+\newlength{\niiem}
+\setlength{\niiem}{-1.5em}
+
+\newcommand{\ttnrbf}[1]{\textnormal{\textbf{#1}}}
+
+\newcommand{\ttitbf}[1]{\textnormal{\textbf{#1}}}
+
+\newcommand{\ttit}[1]{\textit{#1}}
+\newcommand{\sSecBox}[1]{\begin{minipage}{3in}\begin{alltt}{\small\textrm{\textbf{#1}}}}
+\newcommand{\eSecBox}{\end{alltt}\end{minipage}\\ \rule{0pt}{0pt}\hrule}
+
+\newcommand{\sSecMBox}[1]{\begin{minipage}{3in}{\small\textrm{\textbf{#1}}}\\}
+\newcommand{\eSecMBox}{\end{minipage}\\ \rule{0pt}{0pt}\hrule}
+
+
+\newcommand{\srb}[2]{\parbox[t]{#1}{#2}\rule{5pt}{0pt}}
+
+\newcommand{\blt}{\makebox[2ex]{\(\bullet\)}}
+\newcommand{\bsp}{\makebox[2ex]{}}
+\newcommand{\bks}{\(\backslash\)}
+
+\newcommand{\meo}[1]{\mbox{\textcolor{red}{#1}}}
+\newcommand{\spl}[1]{\mbox{\textcolor{blue}{#1}}}
+
+\begin{document}
+\pagestyle{empty}
+
+\fbox{{\parbox[b]{3in}{\huge \bf R ref.\\ \tiny 杨学辉 \url{http://www.bagualu.net}  \\ 最近更新 \today}}}
+\tiny
+
+\sSecBox{获得帮助}
+\srb{55pt}{\blt 查看可用的包        }\srb{45pt}{library()    }\srb{55pt}{\blt 查看某个包的信息}\srb{45pt}{help(package="xx")}
+\srb{55pt}{\blt 查看已装载的包    }\srb{45pt}{search()  }\srb{55pt}{\blt 函数的帮助     }\srb{45pt}{help(mean) | ?mean}
+\srb{55pt}{\blt 所有包含mean的函数}\srb{45pt}{apropos("mean")  }\srb{55pt}{\blt 所有的类型名}\srb{45pt}{methods("is")}    
+\eSecBox
+
+\sSecBox{常用操作}
+\srb{55pt}{\blt 获得当前工作目录}\srb{45pt}{getwd()          }\srb{55pt}{\blt 设置工作目录     }\srb{45pt}{setwd("../") }
+\srb{55pt}{\blt 列目录        }\srb{45pt}{dir(path,pattern)}\srb{55pt}{\blt 列出所有方法a    }\srb{45pt}{methods(a)    }
+\eSecBox
+
+\sSecBox{读取数据}
+\srb{55pt}{\blt 读取数据框        }\srb{45pt}{read.table}\srb{55pt}{\blt 读取csv    }\srb{45pt}{read.csv    }
+\eSecBox
+
+\sSecBox{变量信息}
+\srb{50pt}{\blt is.na(x)}\srb{50pt}{\blt is.null(x) }\srb{50pt}{\blt is.array(x)}\srb{50pt}{\blt is.data.frame(x) }
+\srb{50pt}{\blt is.numeric(x)}\srb{50pt}{\blt is.complex(x) }\srb{50pt}{\blt is.character(x)}
+\srb{55pt}{\blt 向量长度        }\srb{45pt}{length(x)}\srb{55pt}{\blt 行数    }\srb{45pt}{nrow(x)    }
+\srb{55pt}{\blt 类名        }\srb{45pt}{class(x)}\srb{55pt}{\blt 列数    }\srb{45pt}{ncol(x)    }
+\eSecBox
+
+\sSecBox{数据选择及操作}
+\srb{55pt}{\blt 向量的某些元素        }\srb{45pt}{x[c(1,2,6)]}\srb{55pt}{\blt 向量去除某些元素        }\srb{45pt}{x[-c(1,3,6)]}
+\srb{55pt}{\blt 向量去除某些元素        }\srb{45pt}{x[c(-1,-2,-6)]}\srb{55pt}{\blt 向量大于3的元素        }\srb{45pt}{x[x>3]}
+\srb{55pt}{\blt 列表转为向量        }\srb{45pt}{unlist(x)}\srb{55pt}{\blt x的倒序        }\srb{45pt}{rev(x)}
+\srb{55pt}{\blt 排序        }\srb{45pt}{sort(x)}\srb{55pt}{\blt x的最大值索引        }\srb{45pt}{which.max(x)}
+\srb{55pt}{\blt 分段x构造hist        }\srb{45pt}{cut(x,breaks)}\srb{55pt}{\blt x的最小值索引        }\srb{45pt}{which.min(x)}
+\eSecBox
+
+
+
+\end{document}
