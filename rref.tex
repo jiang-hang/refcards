@@ -72,6 +72,7 @@
 
 \sSecBox{读取数据}
 \srb{55pt}{\blt 读取数据框        }\srb{45pt}{read.table}\srb{55pt}{\blt 读取csv    }\srb{45pt}{read.csv    }
+\srb{55pt}{\blt 用ff包分块读取csv        }\srb{45pt}{ff::read.csv.ffdf("aa.csv",head=T,first.rows=10,next.rows=20)}
 \eSecBox
 
 \sSecBox{变量信息}
@@ -89,6 +90,14 @@
 \srb{55pt}{\blt 分段x构造hist        }\srb{45pt}{cut(x,breaks)}\srb{55pt}{\blt x的最小值索引        }\srb{45pt}{which.min(x)}
 \eSecBox
 
+\sSecBox{绘图}
+\srb{55pt}{\blt 饼图        }\srb{45pt}{pie(c(10,2,3),labels=letters[1:3])}
+\srb{55pt}{\blt 柱状图        }\srb{45pt}{hist(c(1,2,3,4,56))}
+\srb{55pt}{\blt 折线图        }\srb{45pt}{plot(c(1,2,3,4,56),type='l')}
+\srb{55pt}{\blt 函数图        }\srb{45pt}{plot(sin,-3,3)}
+\srb{55pt}{\blt 自定义函数图  }\srb{45pt}{plot(function(x) 3*x*x+5*x ,-3,3)}
+\srb{55pt}{\blt 绘制多图      }\srb{45pt}{par(mfrow=c(2,3)) 然后plot...} 
+\eSecBox
 
 
 \end{document}
